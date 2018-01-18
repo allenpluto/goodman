@@ -278,6 +278,7 @@ img {display:block;max-width:100%;}
 #property_list_page_wrapper > .container
 {
     width: 100%;
+    max-width: none;
 }
 
 .property_list_title_container
@@ -323,8 +324,45 @@ img {display:block;max-width:100%;}
     font-size: 2em;
 }
 
+.property_list_column_selector_container
+{
+    padding: 2em 0;
+    text-align: center;
+}
+
+.property_column_trigger_container
+{
+    display: inline-block;
+
+    white-space: nowrap;
+
+    box-shadow: 0 0 5px #333333;
+}
+
+.property_column_trigger
+{
+    display: inline-block;
+    padding: 0.5em 2em;
+
+    color: #77ac1c;
+    font-size: 1.6em;
+
+    cursor: pointer;
+}
+
+.property_column_trigger_active
+{
+    display: none;
+}
+
+.property_column_trigger:last-child
+{
+    border-left: 1px solid #cdcdcd;
+}
+
 .property_list_filter_container
 {
+    display: none;
     padding: 1.8rem 3rem;
     position: relative;
 
@@ -372,14 +410,30 @@ img {display:block;max-width:100%;}
 .property_list_item_container
 {
     display: block;
-    width: 33.33333333%;
+    width: 100%;
     float: left;
     padding: 0 1em;
+}
+
+.property_list_item_gallery_container
+{
+    display: block;
+
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.property_list_item_image_container
+{
+    display: inline-block;
+    width: 100%;
 }
 
 .property_list_item_description_container
 {
     padding: 1em;
+
+    font-size: 1.4em;
 }
 
 .property_list_item_type
@@ -412,6 +466,35 @@ img {display:block;max-width:100%;}
     border-bottom: 1px solid #cdcdcd;
 }
 
+@media only screen and (min-width: 768px)
+{
+    .property_list_item_container
+    {
+        width: 33.33333333%;
+    }
+}
+
+@media only screen and (min-width: 992px)
+{
+    .property_list_column_selector_container
+    {
+        display: none;
+    }
+    .property_list_filter_container
+    {
+        display: block;
+    }
+}
+
+
+@media only screen and (min-width: 992px) and (max-width: 1199px)
+{
+    .property_list_item_description_container
+    {
+        font-size: 1em;
+    }
+}
+
 @media only screen and (min-width: 1200px) and (max-width: 1599px)
 {
     .property_list_item_description_container
@@ -440,7 +523,7 @@ img {display:block;max-width:100%;}
     }
 }
 
-/*# Placeholder CSS - To be Removed or adjust according to 3rd party html #*/
+/*# Placeholder CSS - To be Removed or adjusted according to 3rd party html #*/
 .property_map_placeholder
 {
     width: 100%;
