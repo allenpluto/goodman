@@ -4,14 +4,24 @@
     <meta charset="UTF-8">
     <title>Menu</title>
     <link type="text/css" rel="stylesheet" href="css/default.css">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/default.js"></script>
 </head>
 <body>
 <div class="wrapper off_canvas_wrapper">
     <div class="wrapper off_canvas_container">
         <div class="off_canvas_container_mask off_canvas_halt"></div>
-        <div class="off_canvas_menu off_canvas_menu_right">
-            <div id="off_canvas_trigger_menu" class="off_canvas_trigger off_canvas_trigger_right"></div>
+        <div id="main_menu_container" class="off_canvas_menu off_canvas_menu_right">
+            <div id="main_menu_close_trigger" class="off_canvas_trigger">Close</div>
             <div class="off_canvas_menu_section_container container">
+                <div id="off_canvas_menu_section_contact_us" class="off_canvas_menu_section">
+                    <div class="off_canvas_menu_item">
+                        <a href="http://goodman.com">goodman.com</a>
+                    </div>
+                    <div class="off_canvas_menu_item">
+                        <a href="#">Contact Us</a>
+                    </div>
+                </div>
                 <div class="off_canvas_menu_section">
                     <div class="off_canvas_menu_item">
                         <a href="#">Property for lease</a>
@@ -32,23 +42,68 @@
                         <a href="#">Who we are</a>
                     </div>
                 </div><!-- #off_canvas_menu_section_main_menu -->
-                <div id="off_canvas_menu_section_contact_us" class="off_canvas_menu_section">
-                    <div class="off_canvas_menu_item">
-                        <a href="http://goodman.com">goodman.com</a>
+            </div>
+        </div><!-- #off_canvas_menu -->
+        <div class="wrapper header_wrapper">
+            <div id="pull_down_country" class="wrapper pull_down_wrapper">
+                <div class="pull_down_container">
+                    <div class="pull_down_country_section">
+                        <div class="pull_down_country_section_title">Group+</div>
+                        <div class="pull_down_country_section_content">
+                            <div class="pull_down_country_section_item"><a href="http://goodman.com/">Global Site</a></div>
+                        </div>
                     </div>
-                    <div class="off_canvas_menu_item">
-                        <a href="#">Contact Us</a>
+                    <div class="pull_down_country_section">
+                        <div class="pull_down_country_section_title">Americas+</div>
+                        <div class="pull_down_country_section_content">
+                            <div class="pull_down_country_section_item"><a href="http://goodman.com/">Brazil</a></div>
+                            <div class="pull_down_country_section_item"><a href="http://goodman.com/">North America</a></div>
+                        </div>
+                    </div>
+                    <div class="pull_down_country_section">
+                        <div class="pull_down_country_section_title">Asia Pacific+</div>
+                        <div class="pull_down_country_section_content">
+                            <div class="pull_down_country_section_item"><a href="http://goodman.com.au/">Australia</a></div>
+                            <div class="pull_down_country_section_item"><a href="http://goodman.com.nz/">New Zealand</a></div>
+                            <div class="pull_down_country_section_item"><a href="http://goodman.com.cn/">Greater China</a></div>
+                            <div class="pull_down_country_section_item"><a href="http://goodman.com.jp/">Japan</a></div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div><!-- #off_canvas_menu -->
-        <div id="header_wrapper" class="wrapper">
-            <div id="top_wrapper" class="wrapper">
-                <div id="top_wrapper_logo"><a href="/"><img src="image/goodman_logo.png"></a></div>
+            <div id="pull_down_search" class="wrapper pull_down_wrapper">
+                <div class="pull_down_container">
+                    <form method="get" action="">
+                        <div class="pull_down_search_input_container"><input name="search_keywords" class="general_style_input" type="text" placeholder="Search"><input class="general_style_button" type="submit" value="GO"></div>
+                    </form>
+                </div>
+            </div>
+            <div class="wrapper top_wrapper">
+                <div class="top_sub_menu_wrapper">
+                    <div class="top_sub_menu_item_container drop_down_parent">
+                        <div class="top_sub_menu_item drop_down_trigger">Login</div>
+                        <div class="drop_down_wrapper">
+                            <div class="drop_down_container">
+                                <div class="drop_down_item_container"><a class="drop_down_item" href="#">Investor Login</a></div>
+                                <div class="drop_down_item_container"><a class="drop_down_item" href="#">Service Login</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="top_sub_menu_item_container">
+                        <div class="top_sub_menu_item pull_down_trigger" data-trigger="pull_down_country">Select Country</div>
+                    </div>
+                </div>
+                <div class="top_main_menu_wrapper">
+                    <div class="container">
+                        <div class="top_logo_container"><a href="/"><img src="image/goodman_logo.png"></a></div>
+                        <div class="top_menu_trigger_container off_canvas_trigger off_canvas_trigger_right" data-trigger="main_menu_container"></div>
+                        <div class="top_search_trigger pull_down_trigger" data-trigger="pull_down_search"></div>
+                    </div>
+                </div>
             </div><!-- #top_wrapper -->
         </div><!-- #header_wrapper -->
         <div class="wrapper body_wrapper">
-            <!-- page content placeholder -->
+            <!-- *********************page content placeholder********************* -->
         </div><!-- .body_wrapper -->
     </div>
 </div>
