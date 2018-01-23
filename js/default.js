@@ -88,6 +88,20 @@ $(document).ready(function(){
         }
     });
 
+    $('#top_sub_menu_login_container .drop_down_trigger').click(function(event) {
+        var drop_down_parent = $(this).closest('.drop_down_parent');
+        var off_canvas_menu = $('#main_menu_container');
+        if (drop_down_parent.hasClass('drop_down_expand'))
+        {
+            off_canvas_menu.show();
+        }
+        else
+        {
+            off_canvas_menu.hide();
+        }
+    });
+
+
     $('.property_list_item_selector').click(function(event){
         if (!$(this).hasClass('property_list_item_selector_selected'))
         {
@@ -103,78 +117,78 @@ $(document).ready(function(){
         }
     });
 
-    $('.property_list_item_gallery_container').each(function(){
+    $('.gallery_container').each(function(){
         var gallery_container = $(this);
-        var image_list = gallery_container.find('.property_list_item_image_container');
+        var image_list = gallery_container.find('.gallery_image_container');
         if (image_list.length > 1)
         {
             var gallery_navigation_container = $('<div />',{
-                'class':'property_list_item_gallery_selector_container'
+                'class':'gallery_selector_container'
             });
             gallery_navigation_container.appendTo(gallery_container);
             for(var i=0;i<image_list.length;i++)
             {
                 $('<div />',{
-                    'class':'property_list_item_gallery_selector'
+                    'class':'gallery_selector'
                 }).appendTo(gallery_navigation_container);
             }
-            gallery_navigation_container.find('.property_list_item_gallery_selector').eq(0).addClass('property_list_item_gallery_selector_selected');
+            gallery_navigation_container.find('.gallery_selector').eq(0).addClass('gallery_selector_selected');
             $('<div />',{
-                'class':'property_list_item_gallery_navigator property_list_item_gallery_navigator_previous'
+                'class':'gallery_navigator gallery_navigator_previous'
             }).appendTo(gallery_container);
             $('<div />',{
-                'class':'property_list_item_gallery_navigator property_list_item_gallery_navigator_next'
+                'class':'gallery_navigator gallery_navigator_next'
             }).appendTo(gallery_container);
         }
     });
 
-    $('.property_list_item_gallery_container').on('click','.property_list_item_gallery_selector',function(){
-        if(!$(this).hasClass('property_list_item_gallery_selector_selected'))
+    $('.gallery_container').on('click','.gallery_selector',function(){
+        if(!$(this).hasClass('gallery_selector_selected'))
         {
-            var selector_container = $(this).closest('.property_list_item_gallery_selector_container');
-            var gallery_container = $(this).closest('.property_list_item_gallery_container');
+            var selector_container = $(this).closest('.gallery_selector_container');
+            var gallery_container = $(this).closest('.gallery_container');
 
-            var target_index = selector_container.find('.property_list_item_gallery_selector').index($(this));
+            var target_index = selector_container.find('.gallery_selector').index($(this));
 
-            selector_container.find('.property_list_item_gallery_selector_selected').removeClass('property_list_item_gallery_selector_selected');
-            selector_container.find('.property_list_item_gallery_selector').eq(target_index).addClass('property_list_item_gallery_selector_selected');
+            selector_container.find('.gallery_selector_selected').removeClass('gallery_selector_selected');
+            selector_container.find('.gallery_selector').eq(target_index).addClass('gallery_selector_selected');
 
             gallery_container.css('text-indent',(-100*target_index)+'%');
         }
     });
-    $('.property_list_item_gallery_container').on('click','.property_list_item_gallery_navigator_previous',function(){
-        var gallery_container = $(this).closest('.property_list_item_gallery_container');
-        var selector_container = gallery_container.find('.property_list_item_gallery_selector_container');
+    $('.gallery_container').on('click','.gallery_navigator_previous',function(){
+        var gallery_container = $(this).closest('.gallery_container');
+        var selector_container = gallery_container.find('.gallery_selector_container');
 
-        var target_index = selector_container.find('.property_list_item_gallery_selector').index($('.property_list_item_gallery_selector_selected'));
+        var target_index = selector_container.find('.gallery_selector').index($('.gallery_selector_selected'));
 
         target_index--;
 
         if (target_index < 0)
         {
-            target_index = selector_container.find('.property_list_item_gallery_selector').length - 1;
+            target_index = selector_container.find('.gallery_selector').length - 1;
         }
 
-        selector_container.find('.property_list_item_gallery_selector_selected').removeClass('property_list_item_gallery_selector_selected');
-        selector_container.find('.property_list_item_gallery_selector').eq(target_index).addClass('property_list_item_gallery_selector_selected');
+        selector_container.find('.gallery_selector_selected').removeClass('gallery_selector_selected');
+        selector_container.find('.gallery_selector').eq(target_index).addClass('gallery_selector_selected');
 
         gallery_container.css('text-indent',(-100*target_index)+'%');
     });
-    $('.property_list_item_gallery_container').on('click','.property_list_item_gallery_navigator_next',function(){
-        var gallery_container = $(this).closest('.property_list_item_gallery_container');
-        var selector_container = gallery_container.find('.property_list_item_gallery_selector_container');
+    $('.gallery_container').on('click','.gallery_navigator_next',function(){
+        var gallery_container = $(this).closest('.gallery_container');
+        var selector_container = gallery_container.find('.gallery_selector_container');
 
-        var target_index = selector_container.find('.property_list_item_gallery_selector').index($('.property_list_item_gallery_selector_selected'));
+        var target_index = selector_container.find('.gallery_selector').index($('.gallery_selector_selected'));
 
         target_index++;
 
-        if (target_index > selector_container.find('.property_list_item_gallery_selector').length - 1)
+        if (target_index > selector_container.find('.gallery_selector').length - 1)
         {
             target_index = 0;
         }
 
-        selector_container.find('.property_list_item_gallery_selector_selected').removeClass('property_list_item_gallery_selector_selected');
-        selector_container.find('.property_list_item_gallery_selector').eq(target_index).addClass('property_list_item_gallery_selector_selected');
+        selector_container.find('.gallery_selector_selected').removeClass('gallery_selector_selected');
+        selector_container.find('.gallery_selector').eq(target_index).addClass('gallery_selector_selected');
 
         gallery_container.css('text-indent',(-100*target_index)+'%');
     });
