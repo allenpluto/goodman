@@ -272,6 +272,17 @@ img {display:block;max-width:100%;}
     cursor: pointer;
 }
 
+.general_style_button_green
+{
+    background: #77ac1c;
+    border-color: #77ac1c;
+    color: #ffffff;
+}
+.general_style_button_green:hover
+{
+    background: #5b5b5b;
+}
+
 .general_style_label
 {
     padding-right: 1em;
@@ -569,6 +580,98 @@ img {display:block;max-width:100%;}
     }
 }
 
+/*# JQuery Plugins/Overlay Popup #*/
+.overlay_popup_active
+{
+    overflow: hidden
+}
+
+.overlay_popup_wrapper
+{
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    background: rgba(0,0,0,0);
+    z-index: -1;
+
+    -webkit-transition:z-index 500ms ease, background 500ms ease;
+    -moz-transition:z-index 500ms ease, background 500ms ease;
+    -ms-transition:z-index 500ms ease, background 500ms ease;
+    -o-transition:z-index 500ms ease, background 500ms ease;
+    transition:z-index 500ms ease, background 500ms ease;
+}
+
+.overlay_popup_active .overlay_popup_wrapper
+{
+    display: block;
+    background: rgba(0,0,0,0.3);
+    z-index: 2000;
+}
+
+.overlay_popup_container
+{
+    display: block;
+    width: 1400px;
+    max-width: 90%;
+    position: relative;
+    margin: 50px auto 0 auto;
+}
+
+.overlay_popup_video_container
+{
+    display: block;
+    width: 100%;
+    height: 0;
+    position: absolute;
+    top:0;
+    left:0;
+    padding-bottom: 75%;
+
+    z-index: 2010;
+}
+
+.overlay_popup_video_container > iframe
+{
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+
+}
+
+.overlay_popup_close
+{
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    cursor: pointer;
+
+    z-index: 2020;
+}
+
+.overlay_popup_close:before
+{
+    display: block;
+    width: 2em;
+    height: 2em;
+
+    background: #ffffff;
+
+    color: #5b5b5b;
+    font-family: FontAwesome;
+    font-size: 2em;
+    text-align: center;
+    line-height: 2em;
+
+    content: '\f00d';
+}
+
 /*# JQuery Plugins/Gallery #*/
 .gallery_container
 {
@@ -583,9 +686,14 @@ img {display:block;max-width:100%;}
 {
     display: inline-block;
     width: 100%;
+
+    background: center center no-repeat;
+    background-size: cover;
+
+    text-indent: 0;
 }
 
-.gallery_image_container > img
+.gallery_image_container img
 {
     display: block;
     width: 100%;
@@ -635,6 +743,8 @@ img {display:block;max-width:100%;}
     color: #ffffff;
     text-align: center;
     text-indent: 0;
+
+    cursor: pointer;
 }
 
 .gallery_navigator_previous {left: 0;}
@@ -649,6 +759,27 @@ img {display:block;max-width:100%;}
 
 .gallery_navigator_previous:before {content:'\f053';}
 .gallery_navigator_next:before {content:'\f054';}
+
+.gallery_zoom
+{
+    display: block;
+    position: absolute;
+    right: 1em;
+    bottom: 1em;
+
+    text-indent: 0;
+
+    cursor: pointer;
+}
+
+.gallery_zoom:before
+{
+    color: #ffffff;
+    font-family: FontAwesome;
+    font-size: 2em;
+
+    content: '\f0b2';
+}
 
 /*# Header #*/
 .header_wrapper
@@ -871,7 +1002,7 @@ div.top_sub_menu_item:after
     }
     .top_logo_container
     {
-        margin-left: 4em;
+        margin-left: 3.5em;
 
         -webkit-transform: scale(2.4);
         -ms-transform: scale(2.4);
@@ -1502,37 +1633,82 @@ div.top_sub_menu_item:after
     max-width: none;
 }
 
+.property_detail_image_container
+{
+    height: 25em;
+}
+
+.property_detail_gallery_container .gallery_selector_container
+{
+    bottom: 3em;
+}
+
+.property_detail_gallery_container .gallery_zoom
+{
+    right: 3em;
+    bottom: 3em;
+}
+
+#product_detail_gallery_overlay_popup_wrapper .overlay_popup_container
+{
+    padding: 2em;
+
+    background: #ffffff;
+}
+
+#product_detail_gallery_overlay_popup_wrapper .gallery_container
+{
+    background: #ffffff;
+}
+
+#product_detail_gallery_overlay_popup_wrapper .gallery_container h3
+{
+    padding: 1.5em 0 0.5em;
+
+    color: #5b5b5b;
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+}
+
+#product_detail_gallery_overlay_popup_wrapper .gallery_selector_container
+{
+    bottom: 12em;
+}
+
 .property_detail_content_container
 {
-    padding: 4em;
+    padding: 3em 1.5em;
+    border-bottom: 1px solid #cdcdcd;
 }
 
 .property_detail_content_header_container
 {
+    position: relative;
     border-bottom: 1px solid #cdcdcd;
 }
 
 .property_detail_title_container
 {
-    padding-bottom: 2.5em;
+    padding-bottom: 2em;
 }
 
 .property_detail_title_container > h1
 {
     color: #b8b8b8;
-    font-size: 4.4em;
+    font-size: 3.2em;
     font-weight: bold;
 }
 
 .property_detail_address
 {
-    padding-bottom: 1.5em;
-    font-size: 1.8em;
+    padding-bottom: 1em;
+    font-size: 1.6em;
 }
 
 .property_detail_filter_container
 {
-    padding-bottom: 3em;
+    padding-bottom: 2em;
 }
 
 .property_detail_filter_item
@@ -1540,20 +1716,103 @@ div.top_sub_menu_item:after
     display: inline-block;
     padding-right: 2.5em;
 
-    font-size: 1.6em;
+    font-size: 1.4em;
 }
+
+.property_detail_link_container
+{
+    text-align: center;
+}
+
+.property_detail_view_lease
+{
+    display: inline-block;
+    padding: 0.7em 1em;
+    margin-bottom: 1.5em;
+
+    font-size: 1.8em;
+}
+
+.property_detail_for_lease_content_container .property_detail_view_lease
+{
+    display: none;
+}
+
+.property_detail_share
+{
+    display: inline-block;
+    margin-bottom: 2em;
+
+    font-size: 1.5em;
+
+    cursor: pointer;
+}
+
+.property_detail_share:after
+{
+    padding-left: 0.5em;
+    font-family: FontAwesome;
+    content: '\f003';
+}
+
+.property_detail_for_lease_content_container .property_detail_share
+{
+    float: left;
+}
+
+.property_detail_share:hover:after
+{
+    color: #77ac1c;
+}
+
+.property_detail_more_spaces
+{
+    display: none;
+    float: right;
+
+    color: #77ac1c;
+    font-size: 1.5em;
+
+    cursor: pointer;
+}
+
+.property_detail_more_spaces:hover
+{
+    color: #5b5b5b;
+}
+
+.property_detail_for_lease_content_container .property_detail_more_spaces
+{
+    display: inline-block;
+}
+
 
 .property_detail_content_body_container
 {
     padding: 2em 0;
-    font-size: 2em;
+    font-size: 1.5em;
+}
+
+.property_detail_for_lease_content_body_container
+{
+    display: none;
+}
+
+.property_detail_for_lease_content_container .property_detail_content_body_container
+{
+    display: none;
+}
+
+.property_detail_for_lease_content_container .property_detail_for_lease_content_body_container
+{
+    display: block;
 }
 
 .property_detail_content_body_container h3
 {
     padding: 1em 0;
 
-    font-size: 1em;
+    font-size: 1.2em;
     font-weight: bold;
 }
 
@@ -1561,7 +1820,7 @@ div.top_sub_menu_item:after
 {
     padding-bottom: 1em;
 
-    font-size: 1em;
+    font-size: 1.2em;
 }
 
 .property_detail_content_body_container ul
@@ -1578,18 +1837,45 @@ div.top_sub_menu_item:after
     content: '+';
 }
 
+.property_detail_for_lease_space_item_container
+{
+    padding: 1em 0;
+
+    border-bottom: 1px solid #cdcdcd;
+
+    font-weight: bold;
+
+    white-space: nowrap;
+}
+
+.property_detail_for_lease_space_item_container > *
+{
+    display: inline-block;
+}
+
+.property_detail_for_lease_space_field_name {width: 35%;}
+.property_detail_for_lease_space_field_area {width: 20%}
+.property_detail_for_lease_space_field_type {width: 15%}
+.property_detail_for_lease_space_field_available {width: 30%}
+
+.property_detail_content_footer_container
+{
+    font-size: 1.5em;
+}
+
 .property_detail_content_footer_container h3
 {
     padding-bottom: 1.5em;
-    font-size: 2em;
+
+    font-size: 1.2em;
 }
 
 .property_detail_feature_container
 {
     display: inline-block;
-    padding-right: 2.5em;
+    min-width: 5em;
+    margin: 0 1.5em 1em 0;
 
-    font-size: 1.6em;
     text-align: center;
 
     vertical-align: top;
@@ -1608,7 +1894,6 @@ div.top_sub_menu_item:after
     color: #77ac1c;
     font-family: FontAwesome;
     font-size: 1.5em;
-    line-height: 1.5em;
     text-align: center;
 
     content: ' ';
@@ -1619,6 +1904,99 @@ div.top_sub_menu_item:after
 .property_detail_feature_container_childcare:before {content: '\f07a';}
 .property_detail_feature_container_shower:before {content: '\f2cc';}
 .property_detail_feature_container_social:before {content: '\f0c0';}
+
+.property_detail_bottom_container
+{
+    text-align: center;
+}
+
+.property_detail_bottom_link
+{
+    display: inline-block;
+    padding: 1.333333333em;
+
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.property_detail_bottom_link:before
+{
+    display: inline-block;
+    width: 2em;
+    height: 2em;
+    margin-right: 1em;
+    padding-right: 0.1em;
+
+    border: 2px solid #77ac1c;
+    border-radius: 50%;
+
+    color: #77ac1c;
+    font-family: FontAwesome;
+    line-height: 2em;
+    text-align: center;
+
+    content: '\f053';
+}
+
+.property_detail_bottom_link:hover:before
+{
+    background: #77ac1c;
+    color: #ffffff;
+}
+
+@media only screen and (min-width: 992px) {
+    .property_detail_content_header_container
+    {
+        padding-right: 30%;
+    }
+    .property_detail_link_container
+    {
+        width: 30%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+    }
+    .property_detail_view_lease
+    {
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        font-size: 1.2em;
+        white-space: nowrap;
+    }
+    .property_detail_share
+    {
+        position: absolute;
+        bottom: 2em;
+        right: 0;
+        margin: 0;
+
+        font-size: 1.2em;
+    }
+    .property_detail_for_lease_content_container .property_detail_share
+    {
+        bottom: 4em;
+    }
+    .property_detail_more_spaces
+    {
+        position: absolute;
+        bottom: 2em;
+        right: 0;
+
+        font-size: 1.2em;
+    }
+}
+
+
+@media only screen and (min-width: 1200px)
+{
+    .property_detail_content_container
+    {
+        font-size: 1.3333333333em;
+    }
+}
 
 /*# Placeholder CSS - To be Removed or adjusted according to 3rd party html #*/
 .property_map_placeholder

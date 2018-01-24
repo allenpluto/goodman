@@ -133,6 +133,8 @@ $(document).ready(function(){
                 }).appendTo(gallery_navigation_container);
             }
             gallery_navigation_container.find('.gallery_selector').eq(0).addClass('gallery_selector_selected');
+            gallery_container.data('current_index',0);
+            gallery_container.data('total_count',image_list.length);
             $('<div />',{
                 'class':'gallery_navigator gallery_navigator_previous'
             }).appendTo(gallery_container);
@@ -160,7 +162,7 @@ $(document).ready(function(){
         var gallery_container = $(this).closest('.gallery_container');
         var selector_container = gallery_container.find('.gallery_selector_container');
 
-        var target_index = selector_container.find('.gallery_selector').index($('.gallery_selector_selected'));
+        var target_index = selector_container.find('.gallery_selector').index(selector_container.find('.gallery_selector_selected'));
 
         target_index--;
 
@@ -178,7 +180,7 @@ $(document).ready(function(){
         var gallery_container = $(this).closest('.gallery_container');
         var selector_container = gallery_container.find('.gallery_selector_container');
 
-        var target_index = selector_container.find('.gallery_selector').index($('.gallery_selector_selected'));
+        var target_index = selector_container.find('.gallery_selector').index(selector_container.find('.gallery_selector_selected'));
 
         target_index++;
 
@@ -191,6 +193,25 @@ $(document).ready(function(){
         selector_container.find('.gallery_selector').eq(target_index).addClass('gallery_selector_selected');
 
         gallery_container.css('text-indent',(-100*target_index)+'%');
+    });
+    $('.property_detail_gallery_container').each(function(){
+        var gallery_container = $(this);
+
+        var gallery_zoom = $('<div />',{
+            'class':'gallery_zoom'
+        }).appendTo(gallery_container);
+
+        gallery_zoom.click(function(event){
+            event.preventDefault();
+
+            $('body').addClass('overlay_popup_active');
+        });
+    });
+    $('.overlay_popup_close').click(function(){
+        $('body').removeClass('overlay_popup_active');
+    });
+    $('.property_detail_view_lease').click(function(event){
+        $(this).closest('.property_detail_content_container').addClass('property_detail_for_lease_content_container');
     });
     $('#property_list_search').on('focus',function(){
         $('#property_list_search').trigger('keydown');
