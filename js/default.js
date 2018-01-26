@@ -67,7 +67,7 @@ $(document).ready(function(){
         {
             drop_down_parent = $('#'+$(this).data('trigger'));
         }
-        var drop_down_wrapper = drop_down_parent.find('.drop_down_wrapper');
+        var drop_down_wrapper = drop_down_parent.children('.drop_down_wrapper');
         if (drop_down_parent.hasClass('drop_down_expand'))
         {
             drop_down_wrapper.animate({
@@ -80,7 +80,7 @@ $(document).ready(function(){
         else
         {
             drop_down_wrapper.animate({
-                'height':drop_down_wrapper.find('.drop_down_container').height()
+                'height':drop_down_wrapper.children('.drop_down_container').height()
             },500,function(){
                 drop_down_parent.addClass('drop_down_expand');
                 $(this).css({'height':''});
@@ -278,6 +278,47 @@ $(document).ready(function(){
                     'class': 'property_list_search_autocomplete_row property_list_search_autocomplete_row_'+item.type
                 }).html(item.content+additional_filter_string).appendTo(autocomplete_container);
             });
+        }
+    });
+    $('body').on('click','.general_style_checkbox_display',function(){
+        var checkbox_display = $(this);
+        var checkbox_container = $(this).closest('.general_style_checkbox_container');
+        var checkbox_input = checkbox_container.find('.general_style_checkbox_input');
+
+        checkbox_input.click();
+    });
+    $('body').on('click','.general_style_checkbox_input',function(){
+        var checkbox_input = $(this);
+        var checkbox_container = $(this).closest('.general_style_checkbox_container');
+
+        if (checkbox_input.prop('checked'))
+        {
+            checkbox_container.addClass('general_style_checkbox_container_checked');
+        }
+        else
+        {
+            checkbox_container.removeClass('general_style_checkbox_container_checked');
+        }
+    });
+    $('body').on('click','.general_style_checkbox_container .general_style_label',function(){
+        if (!$(this).attr('for'))
+        {
+            var checkbox_container = $(this).closest('.general_style_checkbox_container');
+            var checkbox_input = checkbox_container.find('.general_style_checkbox_input');
+            checkbox_input.click();
+        }
+    });
+    $('.general_style_checkbox_input').each(function(){
+        var checkbox_input = $(this);
+        var checkbox_container = $(this).closest('.general_style_checkbox_container');
+
+        if (checkbox_input.prop('checked'))
+        {
+            checkbox_container.addClass('general_style_checkbox_container_checked');
+        }
+        else
+        {
+            checkbox_container.removeClass('general_style_checkbox_container_checked');
         }
     });
 });
