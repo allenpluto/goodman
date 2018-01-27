@@ -266,7 +266,7 @@ img {display:block;max-width:100%;}
 
 .general_style_checkbox_display:before
 {
-    color: #ffffff;
+    color: transparent;
     padding-top: 0.2em;
     font-family: FontAwesome;
 
@@ -277,6 +277,11 @@ img {display:block;max-width:100%;}
 {
     background: #77ac1c;
     border-color: #77ac1c;
+}
+
+.general_style_checkbox_container_checked .general_style_checkbox_display:before
+{
+    color: #ffffff;
 }
 
 .general_style_checkbox_input
@@ -1445,49 +1450,159 @@ div.top_sub_menu_item:after
     cursor: pointer;
 }
 
-.property_column_trigger_active
-{
-    display: none;
-}
+.property_list_trigger {display: none;}
+.property_map_active .property_map_trigger {display: none;}
+.property_map_active .property_list_trigger {display: inline-block;}
 
 .property_column_trigger:last-child
 {
     border-left: 1px solid #cdcdcd;
 }
 
-/*# Body/Property List Page/List Filter Trigger on desktop #*/
-.property_list_filter_container
+/*# Body/Property List Page/Filter #*/
+.property_filter_sub_section
 {
-    display: none;
-    padding: 1.8em 3em;
-    position: relative;
+    padding-bottom: 1.5em;
+}
+.property_filter_container .general_style_checkbox_container
+{
+    padding: 0.3em 0;
+    font-size: 1.6em;
+}
+.property_filter_sub_section_title > .general_style_checkbox_container
+{
+    display: inline-block;
 
-    background: #ebeef0;
+    font-weight: bold;
+}
+.property_filter_container .general_style_checkbox_container .general_style_checkbox_display
+{
+    font-size: 0.75em;
+
+    vertical-align: 0.2em;
 }
 
-.property_list_filter_button_container
+#property_type_filter_section .general_style_label
+{
+    font-weight: bold;
+}
+#property_type_filter_section .property_filter_checkbox_sub_label
+{
+    display: block;
+
+    color: #999999;
+    font-size: 0.875em;
+    font-weight: normal;
+}
+
+.property_filter_size_display
+{
+    padding-bottom: 1em;
+
+    font-size: 1.6em;
+    font-weight: bold;
+}
+
+.property_filter_size_display_start,
+.property_filter_size_display_end
 {
     display: inline-block;
 }
 
-.property_list_filter_button
+.property_filter_size_bar_container
 {
-    padding: 0.3em 0.8em;
-    margin-right: 1em;
-
-    font-size: 1.2em;
+    position: relative;
 }
 
-#property_list_filter_show_lease_container
+.property_filter_size_bar_column_container
 {
     display: block;
-    padding-top: 2px;
-    float: right;
+    width: 100%;
+    padding: 2em 0;
 
-    font-size: 1.2em;
+    border-top: 4px solid #cdcdcd;
 }
 
-/*# Body/Property List Page/Filter #*/
+.property_filter_size_bar_column
+{
+    display: inline-block;
+    height: 0.7em;
+    border-right: 1px solid #a4a19a;
+}
+
+.property_filter_size_bar_column:first-child
+{
+    border-left: 1px solid #a4a19a;
+}
+
+.property_filter_size_bar_column_container_1_column > .property_filter_size_bar_column {width: 100%;}
+.property_filter_size_bar_column_container_2_column > .property_filter_size_bar_column {width: 50%;}
+.property_filter_size_bar_column_container_3_column > .property_filter_size_bar_column {width: 33.33333333%;}
+.property_filter_size_bar_column_container_4_column > .property_filter_size_bar_column {width: 25%;}
+.property_filter_size_bar_column_container_5_column > .property_filter_size_bar_column {width: 20%;}
+.property_filter_size_bar_column_container_6_column > .property_filter_size_bar_column {width: 16.66666667%;}
+.property_filter_size_bar_column_container_7_column > .property_filter_size_bar_column {width: 14.28571428%;}
+.property_filter_size_bar_column_container_8_column > .property_filter_size_bar_column {width: 12.5%;}
+.property_filter_size_bar_column_container_9_column > .property_filter_size_bar_column {width: 11.11111111%;}
+.property_filter_size_bar_column_container_10_column > .property_filter_size_bar_column {width: 10%;}
+
+.property_filter_size_bar_front
+{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 20%;
+    right: 0;
+
+    border-top: 2px solid #77ac1c;
+    border-bottom: 2px solid #77ac1c;
+}
+
+.property_filter_size_bar_front_start
+{
+    position: relative;
+    float: left;
+}
+.property_filter_size_bar_front_end
+{
+    position: relative;
+    float: right;
+}
+.property_filter_size_bar_front_start:before,
+.property_filter_size_bar_front_end:before
+{
+    display: block;
+    width: 2em;
+    height: 2em;
+    position: absolute;
+    top: -1em;
+    left: -1em;
+
+    background: #77ac1c;
+    border-radius: 50%;
+
+    content: ' ';
+
+    cursor: pointer;
+}
+
+.property_filter_button
+{
+    display: inline-block;
+    font-size: 1.6em;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.property_filter_button_apply
+{
+    color: #77ac1c;
+    float: right;
+}
+
+
+
 @media only screen and (max-width: 991px)
 {
     .property_filter_wrapper
@@ -1568,27 +1683,6 @@ div.top_sub_menu_item:after
         font-size: 2.1em;
         font-weight: bold;
     }
-    .property_filter_sub_section
-    {
-        padding-bottom: 1.5em;
-    }
-    .property_filter_container .general_style_checkbox_container
-    {
-        padding: 0.3em 0;
-        font-size: 1.6em;
-    }
-    .property_filter_sub_section_title > .general_style_checkbox_container
-    {
-        display: inline-block;
-
-        font-weight: bold;
-    }
-    .property_filter_container .general_style_checkbox_container .general_style_checkbox_display
-    {
-        font-size: 0.75em;
-
-        vertical-align: 0.2em;
-    }
     .property_filter_content .drop_down_trigger
     {
         display: block;
@@ -1618,30 +1712,156 @@ div.top_sub_menu_item:after
     {
         content: '\f077';
     }
-    .property_filter_content .property_filter_button_container
+    .property_filter_section .property_filter_button_container
     {
         display: none;
     }
-    #property_type_filter_section .general_style_label
+    .property_filter_inline_reset
     {
-        font-weight: bold;
+        display: none;
     }
-    #property_type_filter_section .property_filter_checkbox_sub_label
+    .property_filter_size_bar_container
     {
-        display: block;
-
-        color: #999999;
-        font-size: 0.875em;
-        font-weight: normal;
+        width: 90%;
+        margin: 0 auto;
     }
+    #property_for_lease_filter_section
+    {
+        border-bottom: none;
+    }
+    .property_filter_bottom_button_container
+    {
+        margin-top: 1.5em;
+    }
+    .property_filter_bottom_button
+    {
+        display: inline-block;
+        width: 50%;
+        padding: 0.6em 0;
 
+        font-size: 1.8em;
+        text-align: center;
 
+        cursor: pointer;
+
+        border-radius: 0;
+    }
+    .property_filter_bottom_button_cancel
+    {
+        color: #a4a19a;
+    }
+}
+
+@media only screen and (min-width: 992px)
+{
+    .property_filter_wrapper
+    {
+        padding: 1.8em 3em;
+        position: relative;
+        background: #ebeef0;
+    }
+    .property_filter_container
+    {
+        width: 100%;
+    }
+    .property_filter_title_container
+    {
+        display: none;
+    }
+    .property_filter_section_title
+    {
+        display: none;
+    }
+    .property_filter_section
+    {
+        display: inline-block;
+        padding-right: 1.5em;
+    }
+    .property_filter_section > .drop_down_trigger
+    {
+        padding: 0.3em 0.8em;
+        font-size: 1.6em;
+    }
+    .drop_down_expand > .drop_down_trigger
+    {
+        color: #ffffff;
+        background: #77ac1c;
+        border-color: #77ac1c;
+    }
+    .property_filter_section > .drop_down_wrapper
+    {
+        max-width: 90%;
+        position: absolute;
+        margin-top: 1em;
+
+        background: #ffffff;
+        box-shadow: 0 3px 8px rgba(23,48,56,0.3);
+        z-index: 20;
+    }
+    #property_country_filter_section > .drop_down_wrapper {width: 60em;}
+    #property_type_filter_section > .drop_down_wrapper {width: 27em;}
+    #property_size_filter_section > .drop_down_wrapper {width: 32em;}
+
+    .property_filter_section > .drop_down_wrapper > .drop_down_container
+    {
+        padding: 3.5em 3em;
+    }
+    .property_filter_sub_section > .drop_down_wrapper
+    {
+        height: auto;
+    }
+    .property_filter_inline_reset
+    {
+        display: inline-block;
+
+        font-size: 1.6em;
+
+        cursor: pointer;
+    }
+    .property_filter_inline_reset:before
+    {
+        color: #a4a19a;
+        font-family: FontAwesome;
+
+        content: '\f00d';
+    }
+    .property_filter_inline_reset:hover:before
+    {
+        color: #77ac1c;
+    }
+    #property_for_lease_filter_section
+    {
+        float: right;
+        padding-right: 0;
+    }
+    .property_filter_bottom_button_container
+    {
+        display: none;
+    }
 }
 
 /*# Body/Property List Page/List Sections #*/
 .property_list_section_wrapper
 {
+    position: relative;
     padding: 1em 0;
+}
+
+.property_list_section_wrapper_mask
+{
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(255,255,255,0.9);
+    z-index: 10;
+}
+
+.property_filter_active .property_list_section_wrapper_mask
+{
+    display: block;
 }
 
 .property_list_section_title_container
@@ -1795,10 +2015,6 @@ div.top_sub_menu_item:after
     {
         display: none;
     }
-    .property_list_filter_container
-    {
-        display: block;
-    }
 }
 
 
@@ -1816,12 +2032,6 @@ div.top_sub_menu_item:after
     {
         font-size: 1.2em;
     }
-
-    .property_list_filter_button,
-    #property_list_filter_show_lease_container
-    {
-        font-size: 1.4em;
-    }
 }
 
 @media only screen and (min-width:1600px)
@@ -1829,12 +2039,6 @@ div.top_sub_menu_item:after
     .property_list_item_description_container
     {
         font-size: 1.4em;
-    }
-
-    .property_list_filter_button,
-    #property_list_filter_show_lease_container
-    {
-        font-size: 1.6em;
     }
 }
 
@@ -2222,3 +2426,6 @@ div.top_sub_menu_item:after
     background: url('../image/ss-localitiesmap.jpg') center center no-repeat;
     background-size: cover;
 }
+
+/*# Make List Page over all font size smaller #*/
+#property_list_page_wrapper {font-size: 0.8em}

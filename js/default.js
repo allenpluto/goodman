@@ -321,4 +321,97 @@ $(document).ready(function(){
             checkbox_container.removeClass('general_style_checkbox_container_checked');
         }
     });
+    $('.property_filter_trigger').click(function(){
+        if ($('body').hasClass('property_filter_active'))
+        {
+            if ($(this).hasClass('drop_down_trigger'))
+            {
+                if ($(this).closest('.drop_down_parent').hasClass('drop_down_expand'))
+                {
+                    // If clicked filter section is active, close the filter
+                    $('body').removeClass('property_filter_active')
+                }
+                else
+                {
+                    // If clicked filter section is not active, but the filter is active, close the active filter section
+                    $('.property_filter_container > .drop_down_expand').removeClass('drop_down_expand');
+                }
+            }
+            else
+            {
+                // If the mobile filter trigger is clicked, close the filter and de-active filter section if there's any
+                $('body').removeClass('property_filter_active');
+                $('.property_filter_container > .drop_down_expand').removeClass('drop_down_expand');
+            }
+        }
+        else
+        {
+            $('body').addClass('property_filter_active');
+            if ($('.property_filter_container > .drop_down_expand').length == 0)
+            {
+                // If there is no active filter section, make the first section (country filter) active
+                $('.property_filter_container > .drop_down_parent:eq(0)').addClass('drop_down_expand');
+            }
+        }
+    });
+    $('.property_filter_size_bar_container').each(function(){
+        var step_point = ['0','500','1,000','2,000','5,000','10,000+'];
+        var column_count = step_point.length - 1;
+        var column_container = $(this).find('.property_filter_size_bar_column_container');
+        column_container.removeClass('property_filter_size_bar_column_container_5_column');
+        column_container.html('');
+        for (var i=0;i<column_count;i++)
+        {
+            $('<div />',{
+                'class':'property_filter_size_bar_column'
+            }).appendTo(column_container);
+        }
+        column_container.addClass('property_filter_size_bar_column_container_'+column_count+'_column')
+        $('.property_filter_size_bar_container').data('step_point',step_point);
+    });
+    $('.property_filter_size_bar_container').mousedown(function(event){
+        if ($(event.target).hasClass('property_filter_size_bar_front_start'))
+        {
+            console.log('start mousedown');
+            $(this).data('mouse_action','set_start');
+        }
+        if ($(event.target).hasClass('property_filter_size_bar_front_end'))
+        {
+            console.log('end mousedown');
+            $(this).data('mouse_action','set_end');
+        }
+    });
+    $('.property_filter_size_bar_container').mouseup(function(event){
+        if ($(this).data('mouse_action'))
+        {
+            $(this).data('mouse_action','');
+        }
+    });
+    $('.property_filter_size_bar_container').mousemove(function(event){
+        if ($(this).data('mouse_action'))
+        {
+            var bar_width = $(this).width();
+            var bar_left = $(this).offset().left;
+            var mouse_position = (event.pageX - bar_left) / bar_width;
+
+            var bar_step = 1/$(this).find('.property_filter_size_bar_column_container .property_filter_size_bar_column').length;
+            var bar_start = parseFloat($(this).find('.property_filter_size_bar_front').css('left'))/bar_width;
+            var bar_end = parseFloat($(this).find('.property_filter_size_bar_front').css('right'))/bar_width;
+
+            if ($(this).data('mouse_action') == 'set_start')
+            {
+                var new_bar_start_point = Math.min(Math.round(mouse_position / bar_step), Math.round((1 - bar_end) / bar_step) - 1);
+                var new_bar_start = new_bar_start_point * bar_step;
+                $(this).parent().find('.property_filter_size_display_start').html($(this).data('step_point')[new_bar_start_point]);
+                $(this).find('.property_filter_size_bar_front').css('left',(new_bar_start*100)+'%');
+            }
+            if ($(this).data('mouse_action') == 'set_end')
+            {
+                var new_bar_end_point = Math.max(Math.round(mouse_position / bar_step), Math.round(bar_start / bar_step) + 1);
+                var new_bar_end = 1 - new_bar_end_point * bar_step;
+                $(this).parent().find('.property_filter_size_display_end').html($(this).data('step_point')[new_bar_end_point]);
+                $(this).find('.property_filter_size_bar_front').css('right',(new_bar_end*100)+'%');
+            }
+        }
+    });
 });

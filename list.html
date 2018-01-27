@@ -151,20 +151,12 @@
         </div><!-- #header_wrapper -->
         <div class="wrapper body_wrapper">
             <!-- *********************page content placeholder********************* -->
-            <div id="property_list_page_wrapper" class="wrapper property_filter_active">
+            <div id="property_list_page_wrapper" class="wrapper">
                 <div class="container column_container">
                     <div class="property_list_container column column_l_6 column_xl_6 column_xxl_6">
                         <div class="property_list_title_container"><h1>SmartSpace<span class="high_light">+</span></h1></div>
                         <div class="property_list_search_container"><input id="property_list_search" class="general_style_input" type="text" placeholder="City, address, property name"><div class="property_list_search_autocomplete_wrapper"><div class="property_list_search_autocomplete_container"></div></div></div>
-                        <div class="property_list_column_selector_container"><div class="property_column_trigger_container"><div class="property_column_trigger property_column_trigger_active">List</div><div class="property_column_trigger">Map</div><div class="property_column_trigger">Filter</div></div></div>
-                        <div class="property_list_filter_container">
-                            <!--<div id="property_list_filter_show_lease_container" class="general_style_checkbox_container"><input id="property_list_filter_show_lease" class="property_list_filter_checkbox general_style_checkbox_input" type="checkbox"><div class="general_style_checkbox_display"></div><label for="property_list_filter_show_lease" class="general_style_label general_style_label_right">Show space for lease</label></div>-->
-                            <div class="property_list_filter_button_container"><!--
-                            --><input class="general_style_button property_list_filter_button" type="button" value="Country"><!--
-                            --><input class="general_style_button property_list_filter_button" type="button" value="Property type"><!--
-                            --><input class="general_style_button property_list_filter_button" type="button" value="Property size"></div>
-                            <div class="clear"></div>
-                        </div>
+                        <div class="property_list_column_selector_container"><div class="property_column_trigger_container"><div class="property_list_trigger property_column_trigger">List</div><div class="property_map_trigger property_column_trigger">Map</div><div class="property_filter_trigger property_column_trigger">Filter</div></div></div>
                         <div class="property_filter_wrapper">
                             <div class="property_filter_title_container">
                                 <div class="container">
@@ -175,59 +167,68 @@
                             </div>
                             <div class="property_filter_container container">
                                 <div id="property_country_filter_section" class="property_filter_section drop_down_parent">
-                                    <div class="property_filter_display drop_down_trigger">Country</div>
+                                    <div class="property_filter_trigger drop_down_trigger general_style_button">Country</div>
                                     <div class="property_filter_section_title">Country</div>
                                     <div class="drop_down_wrapper">
-                                        <div class="property_filter_content drop_down_container">
-                                            <div class="property_filter_sub_section drop_down_parent drop_down_expand">
-                                                <div class="property_filter_sub_section_title"><div class="general_style_checkbox_container"><input class="property_filter_sub_section_title_checkbox general_style_checkbox_input" type="checkbox"><div class="general_style_checkbox_display"></div><label class="general_style_label general_style_label_right">Asia Pacific+</label></div><div class="drop_down_trigger"></div></div>
-                                                <div class="property_filter_sub_section_content drop_down_wrapper">
-                                                    <div class="drop_down_container">
-                                                        <div class="property_filter_sub_section_row general_style_checkbox_container"><input class="property_filter_sub_section_row_checkbox general_style_checkbox_input" type="checkbox" checked><div class="general_style_checkbox_display"></div><label class="general_style_label general_style_label_right">Australia</label></div>
-                                                        <div class="property_filter_sub_section_row general_style_checkbox_container"><input class="property_filter_sub_section_row_checkbox general_style_checkbox_input" type="checkbox"><div class="general_style_checkbox_display"></div><label class="general_style_label general_style_label_right">New Zealand</label></div>
-                                                        <div class="property_filter_sub_section_row general_style_checkbox_container"><input class="property_filter_sub_section_row_checkbox general_style_checkbox_input" type="checkbox"><div class="general_style_checkbox_display"></div><label class="general_style_label general_style_label_right">Greater China</label></div>
-                                                        <div class="property_filter_sub_section_row general_style_checkbox_container"><input class="property_filter_sub_section_row_checkbox general_style_checkbox_input" type="checkbox"><div class="general_style_checkbox_display"></div><label class="general_style_label general_style_label_right">Japan</label></div>
+                                        <div class="property_filter_content drop_down_container column_container">
+                                            <div class="column column_12 column_l_4 column_xl_4 column_xxl_4">
+                                                <div class="property_filter_sub_section drop_down_parent drop_down_expand">
+                                                    <div class="property_filter_sub_section_title"><div class="general_style_checkbox_container"><input class="property_filter_sub_section_title_checkbox general_style_checkbox_input" type="checkbox"><div class="general_style_checkbox_display"></div><label class="general_style_label general_style_label_right">Asia Pacific+</label></div><div class="drop_down_trigger"></div></div>
+                                                    <div class="property_filter_sub_section_content drop_down_wrapper">
+                                                        <div class="drop_down_container">
+                                                            <div class="property_filter_sub_section_row general_style_checkbox_container"><input class="property_filter_sub_section_row_checkbox general_style_checkbox_input" type="checkbox" checked><div class="general_style_checkbox_display"></div><label class="general_style_label general_style_label_right">Australia</label></div>
+                                                            <div class="property_filter_sub_section_row general_style_checkbox_container"><input class="property_filter_sub_section_row_checkbox general_style_checkbox_input" type="checkbox"><div class="general_style_checkbox_display"></div><label class="general_style_label general_style_label_right">New Zealand</label></div>
+                                                            <div class="property_filter_sub_section_row general_style_checkbox_container"><input class="property_filter_sub_section_row_checkbox general_style_checkbox_input" type="checkbox"><div class="general_style_checkbox_display"></div><label class="general_style_label general_style_label_right">Greater China</label></div>
+                                                            <div class="property_filter_sub_section_row general_style_checkbox_container"><input class="property_filter_sub_section_row_checkbox general_style_checkbox_input" type="checkbox"><div class="general_style_checkbox_display"></div><label class="general_style_label general_style_label_right">Japan</label></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="property_filter_sub_section drop_down_parent">
+                                                    <div class="property_filter_sub_section_title"><div class="general_style_checkbox_container"><input class="property_filter_sub_section_title_checkbox general_style_checkbox_input" type="checkbox"><div class="general_style_checkbox_display"></div><label class="general_style_label general_style_label_right">Americas+</label></div><div class="drop_down_trigger"></div></div>
+                                                    <div class="property_filter_sub_section_content drop_down_wrapper">
+                                                        <div class="drop_down_container">
+                                                            <div class="property_filter_sub_section_row general_style_checkbox_container"><input class="property_filter_sub_section_row_checkbox general_style_checkbox_input" type="checkbox"><div class="general_style_checkbox_display"></div><label class="general_style_label general_style_label_right">Brazil</label></div>
+                                                            <div class="property_filter_sub_section_row general_style_checkbox_container"><input class="property_filter_sub_section_row_checkbox general_style_checkbox_input" type="checkbox"><div class="general_style_checkbox_display"></div><label class="general_style_label general_style_label_right">North America</label></div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="property_filter_sub_section drop_down_parent">
-                                                <div class="property_filter_sub_section_title"><div class="general_style_checkbox_container"><input class="property_filter_sub_section_title_checkbox general_style_checkbox_input" type="checkbox"><div class="general_style_checkbox_display"></div><label class="general_style_label general_style_label_right">Americas+</label></div><div class="drop_down_trigger"></div></div>
-                                                <div class="property_filter_sub_section_content drop_down_wrapper">
-                                                    <div class="drop_down_container">
-                                                        <div class="property_filter_sub_section_row general_style_checkbox_container"><input class="property_filter_sub_section_row_checkbox general_style_checkbox_input" type="checkbox"><div class="general_style_checkbox_display"></div><label class="general_style_label general_style_label_right">Brazil</label></div>
-                                                        <div class="property_filter_sub_section_row general_style_checkbox_container"><input class="property_filter_sub_section_row_checkbox general_style_checkbox_input" type="checkbox"><div class="general_style_checkbox_display"></div><label class="general_style_label general_style_label_right">North America</label></div>
+                                            <div class="column column_12 column_l_8 column_xl_8 column_xxl_8">
+                                                <div class="property_filter_sub_section drop_down_parent">
+                                                    <div class="property_filter_sub_section_title"><div class="general_style_checkbox_container"><input class="property_filter_sub_section_title_checkbox general_style_checkbox_input" type="checkbox"><div class="general_style_checkbox_display"></div><label class="general_style_label general_style_label_right">Europe+</label></div><div class="drop_down_trigger"></div></div>
+                                                    <div class="property_filter_sub_section_content drop_down_wrapper">
+                                                        <div class="drop_down_container column_container">
+                                                            <div class="column column_l_6 column_xl_6 column_xxl_6">
+                                                                <div class="property_filter_sub_section_row general_style_checkbox_container"><input class="property_filter_sub_section_row_checkbox general_style_checkbox_input" type="checkbox"><div class="general_style_checkbox_display"></div><label class="general_style_label general_style_label_right">Belgium</label></div>
+                                                                <div class="property_filter_sub_section_row general_style_checkbox_container"><input class="property_filter_sub_section_row_checkbox general_style_checkbox_input" type="checkbox"><div class="general_style_checkbox_display"></div><label class="general_style_label general_style_label_right">Czech Republic</label></div>
+                                                                <div class="property_filter_sub_section_row general_style_checkbox_container"><input class="property_filter_sub_section_row_checkbox general_style_checkbox_input" type="checkbox"><div class="general_style_checkbox_display"></div><label class="general_style_label general_style_label_right">Denmark</label></div>
+                                                                <div class="property_filter_sub_section_row general_style_checkbox_container"><input class="property_filter_sub_section_row_checkbox general_style_checkbox_input" type="checkbox"><div class="general_style_checkbox_display"></div><label class="general_style_label general_style_label_right">France</label></div>
+                                                                <div class="property_filter_sub_section_row general_style_checkbox_container"><input class="property_filter_sub_section_row_checkbox general_style_checkbox_input" type="checkbox"><div class="general_style_checkbox_display"></div><label class="general_style_label general_style_label_right">Germany</label></div>
+                                                                <div class="property_filter_sub_section_row general_style_checkbox_container"><input class="property_filter_sub_section_row_checkbox general_style_checkbox_input" type="checkbox"><div class="general_style_checkbox_display"></div><label class="general_style_label general_style_label_right">Hungary</label></div>
+                                                                <div class="property_filter_sub_section_row general_style_checkbox_container"><input class="property_filter_sub_section_row_checkbox general_style_checkbox_input" type="checkbox"><div class="general_style_checkbox_display"></div><label class="general_style_label general_style_label_right">Italy</label></div>
+                                                            </div>
+                                                            <div class="column column_l_6 column_xl_6 column_xxl_6">
+                                                                <div class="property_filter_sub_section_row general_style_checkbox_container"><input class="property_filter_sub_section_row_checkbox general_style_checkbox_input" type="checkbox"><div class="general_style_checkbox_display"></div><label class="general_style_label general_style_label_right">Netherlands</label></div>
+                                                                <div class="property_filter_sub_section_row general_style_checkbox_container"><input class="property_filter_sub_section_row_checkbox general_style_checkbox_input" type="checkbox"><div class="general_style_checkbox_display"></div><label class="general_style_label general_style_label_right">Poland</label></div>
+                                                                <div class="property_filter_sub_section_row general_style_checkbox_container"><input class="property_filter_sub_section_row_checkbox general_style_checkbox_input" type="checkbox"><div class="general_style_checkbox_display"></div><label class="general_style_label general_style_label_right">Slovakia</label></div>
+                                                                <div class="property_filter_sub_section_row general_style_checkbox_container"><input class="property_filter_sub_section_row_checkbox general_style_checkbox_input" type="checkbox"><div class="general_style_checkbox_display"></div><label class="general_style_label general_style_label_right">Spain</label></div>
+                                                                <div class="property_filter_sub_section_row general_style_checkbox_container"><input class="property_filter_sub_section_row_checkbox general_style_checkbox_input" type="checkbox"><div class="general_style_checkbox_display"></div><label class="general_style_label general_style_label_right">Sweden</label></div>
+                                                                <div class="property_filter_sub_section_row general_style_checkbox_container"><input class="property_filter_sub_section_row_checkbox general_style_checkbox_input" type="checkbox"><div class="general_style_checkbox_display"></div><label class="general_style_label general_style_label_right">United Kingdom</label></div>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="property_filter_sub_section drop_down_parent">
-                                                <div class="property_filter_sub_section_title"><div class="general_style_checkbox_container"><input class="property_filter_sub_section_title_checkbox general_style_checkbox_input" type="checkbox"><div class="general_style_checkbox_display"></div><label class="general_style_label general_style_label_right">Europe+</label></div><div class="drop_down_trigger"></div></div>
-                                                <div class="property_filter_sub_section_content drop_down_wrapper">
-                                                    <div class="drop_down_container">
-                                                        <div class="property_filter_sub_section_row general_style_checkbox_container"><input class="property_filter_sub_section_row_checkbox general_style_checkbox_input" type="checkbox"><div class="general_style_checkbox_display"></div><label class="general_style_label general_style_label_right">Belgium</label></div>
-                                                        <div class="property_filter_sub_section_row general_style_checkbox_container"><input class="property_filter_sub_section_row_checkbox general_style_checkbox_input" type="checkbox"><div class="general_style_checkbox_display"></div><label class="general_style_label general_style_label_right">Czech Republic</label></div>
-                                                        <div class="property_filter_sub_section_row general_style_checkbox_container"><input class="property_filter_sub_section_row_checkbox general_style_checkbox_input" type="checkbox"><div class="general_style_checkbox_display"></div><label class="general_style_label general_style_label_right">Denmark</label></div>
-                                                        <div class="property_filter_sub_section_row general_style_checkbox_container"><input class="property_filter_sub_section_row_checkbox general_style_checkbox_input" type="checkbox"><div class="general_style_checkbox_display"></div><label class="general_style_label general_style_label_right">France</label></div>
-                                                        <div class="property_filter_sub_section_row general_style_checkbox_container"><input class="property_filter_sub_section_row_checkbox general_style_checkbox_input" type="checkbox"><div class="general_style_checkbox_display"></div><label class="general_style_label general_style_label_right">Germany</label></div>
-                                                        <div class="property_filter_sub_section_row general_style_checkbox_container"><input class="property_filter_sub_section_row_checkbox general_style_checkbox_input" type="checkbox"><div class="general_style_checkbox_display"></div><label class="general_style_label general_style_label_right">Hungary</label></div>
-                                                        <div class="property_filter_sub_section_row general_style_checkbox_container"><input class="property_filter_sub_section_row_checkbox general_style_checkbox_input" type="checkbox"><div class="general_style_checkbox_display"></div><label class="general_style_label general_style_label_right">Italy</label></div>
-                                                        <div class="property_filter_sub_section_row general_style_checkbox_container"><input class="property_filter_sub_section_row_checkbox general_style_checkbox_input" type="checkbox"><div class="general_style_checkbox_display"></div><label class="general_style_label general_style_label_right">Netherlands</label></div>
-                                                        <div class="property_filter_sub_section_row general_style_checkbox_container"><input class="property_filter_sub_section_row_checkbox general_style_checkbox_input" type="checkbox"><div class="general_style_checkbox_display"></div><label class="general_style_label general_style_label_right">Poland</label></div>
-                                                        <div class="property_filter_sub_section_row general_style_checkbox_container"><input class="property_filter_sub_section_row_checkbox general_style_checkbox_input" type="checkbox"><div class="general_style_checkbox_display"></div><label class="general_style_label general_style_label_right">Slovakia</label></div>
-                                                        <div class="property_filter_sub_section_row general_style_checkbox_container"><input class="property_filter_sub_section_row_checkbox general_style_checkbox_input" type="checkbox"><div class="general_style_checkbox_display"></div><label class="general_style_label general_style_label_right">Spain</label></div>
-                                                        <div class="property_filter_sub_section_row general_style_checkbox_container"><input class="property_filter_sub_section_row_checkbox general_style_checkbox_input" type="checkbox"><div class="general_style_checkbox_display"></div><label class="general_style_label general_style_label_right">Sweden</label></div>
-                                                        <div class="property_filter_sub_section_row general_style_checkbox_container"><input class="property_filter_sub_section_row_checkbox general_style_checkbox_input" type="checkbox"><div class="general_style_checkbox_display"></div><label class="general_style_label general_style_label_right">United Kingdom</label></div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <div class="clear"></div>
                                             <div class="property_filter_button_container">
                                                 <div class="property_filter_button property_filter_button_cancel">Cancel</div>
                                                 <div class="property_filter_button property_filter_button_apply">Apply</div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div id="property_type_filter_section" class="property_filter_section drop_down_parent">
-                                    <div class="property_filter_display drop_down_trigger">Property type</div>
+                                </div><!--
+                                --><div id="property_type_filter_section" class="property_filter_section drop_down_parent">
+                                    <div class="property_filter_trigger drop_down_trigger general_style_button">Property type</div>
                                     <div class="property_filter_section_title">Property type</div>
                                     <div class="drop_down_wrapper">
                                         <div class="property_filter_content drop_down_container">
@@ -240,17 +241,16 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div id="property_size_filter_section" class="property_filter_section drop_down_parent">
-                                    <div class="property_filter_display drop_down_trigger">Property size</div>
+                                </div><!--
+                                --><div id="property_size_filter_section" class="property_filter_section drop_down_parent">
+                                    <div class="property_filter_trigger drop_down_trigger general_style_button">Property size</div>
                                     <div class="property_filter_section_title">Property size</div>
                                     <div class="drop_down_wrapper">
                                         <div class="property_filter_content drop_down_container">
-                                            <div class="property_filter_size_display"><div class="property_filter_size_display_start"></div> - <div class="property_filter_size_display_end"> sqm</div></div>
+                                            <div class="property_filter_size_display"><div class="property_filter_size_display_start">501</div> - <div class="property_filter_size_display_end">10,000+</div> sqm</div>
                                             <div class="property_filter_size_bar_container">
-                                                <div class="property_filter_size_bar_column_container"><div class="property_filter_size_bar_column"></div><div class="property_filter_size_bar_column"></div><div class="property_filter_size_bar_column"></div><div class="property_filter_size_bar_column"></div></div>
-                                                <div class="property_filter_size_bar_background"></div>
-                                                <div class="property_filter_size_bar_front"></div>
+                                                <div class="property_filter_size_bar_column_container property_filter_size_bar_column_container_5_column"><div class="property_filter_size_bar_column"></div><div class="property_filter_size_bar_column"></div><div class="property_filter_size_bar_column"></div><div class="property_filter_size_bar_column"></div><div class="property_filter_size_bar_column"></div></div>
+                                                <div class="property_filter_size_bar_front"><div class="property_filter_size_bar_front_start"></div><div class="property_filter_size_bar_front_end"></div></div>
                                             </div>
                                             <div class="property_filter_button_container">
                                                 <div class="property_filter_button property_filter_button_cancel">Cancel</div>
@@ -258,21 +258,15 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="property_filter_button_container">
-                                        <div class="property_filter_button property_filter_button_cancel">Cancel</div>
-                                        <div class="property_filter_button property_filter_button_apply">Apply</div>
-                                    </div>
-                                </div>
-                                <div class="property_filter_inline_reset property_filter_button_reset"></div>
+                                </div><!--
+                                --><div class="property_filter_inline_reset property_filter_button_reset"></div>
                                 <div id="property_for_lease_filter_section" class="property_filter_section">
                                     <div class="property_filter_section_title">For lease</div>
-                                    <div id="property_list_filter_show_lease_container" class="property_filter_display general_style_checkbox_container"><input id="property_list_filter_show_lease" class="property_list_filter_checkbox general_style_checkbox_input" type="checkbox"><div class="general_style_checkbox_display"></div><label for="property_list_filter_show_lease" class="general_style_label general_style_label_right">Show space for lease</label></div>
+                                    <div class="property_filter_section_row general_style_checkbox_container"><input id="property_list_filter_show_lease" class="property_list_filter_checkbox general_style_checkbox_input" type="checkbox"><div class="general_style_checkbox_display"></div><label for="property_list_filter_show_lease" class="general_style_label general_style_label_right">Show space for lease</label></div>
                                 </div>
+                                <div class="clear"></div>
                             </div>
-                            <div class="property_filter_bottom_button_container">
-                                <div class="property_filter_bottom_button_cancel property_filter_button_cancel">Cancel</div>
-                                <div class="property_filter_bottom_button_apply property_filter_button_apply">Apply</div>
-                            </div>
+                            <div class="property_filter_bottom_button_container"><div class="property_filter_bottom_button property_filter_bottom_button_cancel general_style_button property_filter_button_cancel">Cancel</div><div class="property_filter_bottom_button property_filter_bottom_button_apply general_style_button general_style_button_green property_filter_button_apply">Apply</div></div>
                         </div>
                         <div class="property_list_section_wrapper">
                             <div class="property_list_section_container">
