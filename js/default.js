@@ -136,6 +136,9 @@ $(document).ready(function(){
             gallery_container.data('current_index',0);
             gallery_container.data('total_count',image_list.length);
             $('<div />',{
+                'class':'gallery_navigator_vignette'
+            }).appendTo(gallery_container);
+            $('<div />',{
                 'class':'gallery_navigator gallery_navigator_previous'
             }).appendTo(gallery_container);
             $('<div />',{
@@ -206,16 +209,34 @@ $(document).ready(function(){
 
             $('body').addClass('overlay_popup_active');
         });
+
+        var gallery_close = $('<div />',{
+            'class':'gallery_close'
+        }).appendTo(gallery_container);
+
+        gallery_close.click(function(event){
+            event.preventDefault();
+
+            gallery_container.hide();
+        });
     });
     $('.overlay_popup_close').click(function(){
         $('body').removeClass('overlay_popup_active');
     });
     $('.property_detail_view_lease').click(function(event){
-        $(this).closest('.property_detail_content_container').addClass('property_detail_for_lease_content_container');
+        $(this).closest('.property_detail_container').addClass('property_detail_for_lease_container');
     });
     $('#property_list_search').on('focus',function(){
+        if ($(this).data('hide_autocomplete_timeout'))
+        {
+            clearTimeout($(this).data('hide_autocomplete_timeout'));
+        }
         $('#property_list_search').trigger('keydown');
         $(this).parent().find('.property_list_search_autocomplete_wrapper').addClass('property_list_search_autocomplete_wrapper_expand');
+    });
+    $('#property_list_search').on('blur',function(){
+        var search_autocomplete = $(this).parent().find('.property_list_search_autocomplete_wrapper');
+        $(this).data('hide_autocomplete_timeout',setTimeout(function(){search_autocomplete.removeClass('property_list_search_autocomplete_wrapper_expand')},2000));
     });
     $('#property_list_search').on('keydown',function(){
         var autocomplete_container = $(this).parent().find('.property_list_search_autocomplete_container');
@@ -347,12 +368,31 @@ $(document).ready(function(){
         else
         {
             $('body').addClass('property_filter_active');
-            if ($('.property_filter_container > .drop_down_expand').length == 0)
+            if (!$(this).hasClass('drop_down_trigger') && $('.property_filter_container > .drop_down_expand').length == 0)
             {
                 // If there is no active filter section, make the first section (country filter) active
                 $('.property_filter_container > .drop_down_parent:eq(0)').addClass('drop_down_expand');
             }
         }
+    });
+    $('.property_filter_button_apply').click(function(){
+        // TODO: Set current value by input data (also store in cookie? ajax post to db?) and close filter
+        $('body').removeClass('property_filter_active');
+        $('.property_filter_container > .drop_down_expand').removeClass('drop_down_expand');
+    });
+    $('.property_filter_button_cancel').click(function(){
+        // TODO: Reset all input to current value and close filter
+        $('body').removeClass('property_filter_active');
+        $('.property_filter_container > .drop_down_expand').removeClass('drop_down_expand');
+    });
+    $('.property_map_trigger').click(function(){
+        $('body').addClass('property_map_active');
+    });
+    $('.property_detail_trigger').click(function(){
+        $('body').removeClass('property_map_active');
+    });
+    $('.property_list_trigger').click(function(){
+        $('body').removeClass('property_map_active');
     });
     $('.property_filter_size_bar_container').each(function(){
         var step_point = ['0','500','1,000','2,000','5,000','10,000+'];
